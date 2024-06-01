@@ -45,6 +45,12 @@ class BookCrudController extends CrudController
         ]);
 
         $this->crud->addColumn([
+            'name'  => 'author',
+            'label' => "Author",
+            'type'  => 'text',
+        ]);
+
+        $this->crud->addColumn([
             'label'     => 'Category', // Table column heading
             'type'      => 'select',
             'name'      => 'category_id', // the column that contains the ID of that connected entity;
@@ -64,6 +70,12 @@ class BookCrudController extends CrudController
         $this->crud->addField([
             'name'  => 'title',
             'label' => "Title",
+            'type'  => 'text',
+        ]);
+
+        $this->crud->addField([
+            'name'  => 'author',
+            'label' => "Author",
             'type'  => 'text',
         ]);
 

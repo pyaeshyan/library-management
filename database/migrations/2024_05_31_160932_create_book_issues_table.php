@@ -20,7 +20,7 @@ class CreateBookIssuesTable extends Migration
             $table->integer('frontend_use_id');
             $table->date('to_return_date');
             $table->date('returned_date')->nullable();
-            $table->integer('overdue_days');
+            $table->integer('overdue_days')->default();
             $table->enum( 'status', ['issued', 'returned'])->default('issued');
             $table->timestamps();
         });

@@ -24,6 +24,12 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::get('/book-list',[BookController::class, 'index']);
 
+    Route::get('/issue',[BookController::class, 'issue']);
+
+    Route::get('/return',[BookController::class, 'return']);
+
+    Route::get('/issue-list',[BookController::class, 'issueHistory']);
+
     Route::get('/user', function (Request $request) {
         return $request->user();
     });

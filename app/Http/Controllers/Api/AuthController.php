@@ -29,15 +29,26 @@ class AuthController extends Controller
 
     public function login(LoginRequest $request)
     {
+        $user = FrontendUser::where('email', $request->email)->first();
 
-        if (!Auth::attempt($request->only('email', 'password'))) {
-            return response()->json(['message' => 'Invalid credentials'], 401);
+        if($user) {
+
+            if(Hash::check($request->password, $user->password)) {
+
+                $token = $user->createToken('user-token')->plainTextToken;
+        
+                return response()->json(['token' => $token, 'user' => $user], 200);
+            } else {
+                return response()->json(['message' => 'Invalid Credential'], 401);
+            }
+            
+            
+        } else {
+
+            return response()->json(['message' => 'User Not Found'], 401);
+
         }
 
-        $user = Auth::user();
-        $token = $user->createToken('user-token')->plainTextToken;
-
-        return response()->json(['token' => $token, 'user' => $user], 200);
     }
 
     public function logout(Request $request)

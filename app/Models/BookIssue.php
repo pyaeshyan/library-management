@@ -35,6 +35,21 @@ class BookIssue extends Model
     |--------------------------------------------------------------------------
     */
 
+    public function book()
+    {
+        return $this->belongsTo('App\Models\Book');
+    }
+
+    public function category()
+    {
+        return $this->belongsTo('App\Models\Category');
+    }
+
+    public function frontendUser()
+    {
+        return $this->belongsTo('App\Models\FrontendUser', 'frontend_use_id');
+    }
+
     /*
     |--------------------------------------------------------------------------
     | SCOPES

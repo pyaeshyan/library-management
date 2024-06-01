@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 
-class FrontendUser extends Model
+class FrontendUser  extends Authenticatable
 {
     use HasApiTokens, Notifiable, CrudTrait;
 

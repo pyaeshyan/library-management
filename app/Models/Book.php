@@ -19,7 +19,7 @@ class Book extends Model
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
-    protected $fillable = ['id', 'title', 'category_id', 'image', 'quantity', 'short_desc'];
+    protected $fillable = ['id', 'title', 'category_id', 'image', 'quantity', 'short_desc', 'author'];
     // protected $hidden = [];
     // protected $dates = [];
 

@@ -41,6 +41,11 @@ return [
             'provider' => 'users',
         ],
 
+        'frontend_user' => [
+            'driver' => 'session',
+            'provider' => 'frontendusers',
+        ],
+
         'api' => [
             'driver' => 'sanctum',
             'provider' => 'frontendusers',

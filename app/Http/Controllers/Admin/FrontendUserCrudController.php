@@ -23,13 +23,38 @@ class FrontendUserCrudController extends CrudController
     {
         $this->crud->setModel('App\Models\FrontendUser');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/frontenduser');
-        $this->crud->setEntityNameStrings('frontenduser', 'frontend_users');
+        $this->crud->setEntityNameStrings('Team Members', 'Team Members');
+        CRUD::denyAccess(['show', 'create', 'update', 'delete']);
     }
 
     protected function setupListOperation()
     {
         // TODO: remove setFromDb() and manually define Columns, maybe Filters
-        $this->crud->setFromDb();
+        // $this->crud->setFromDb();
+
+        $this->crud->addColumn([
+            'name'  => 'name',
+            'label' => "Name",
+            'type'  => 'text',
+        ]);
+
+        $this->crud->addColumn([
+            'name'  => 'email',
+            'label' => "Email",
+            'type'  => 'text',
+        ]);
+
+        $this->crud->addColumn([
+            'name'  => 'phone',
+            'label' => "Phone No",
+            'type'  => 'text',
+        ]);
+
+        $this->crud->addColumn([
+            'name'  => 'address',
+            'label' => "Address",
+            'type'  => 'text',
+        ]);
     }
 
     protected function setupCreateOperation()
