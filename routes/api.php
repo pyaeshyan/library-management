@@ -22,6 +22,8 @@ Route::post('logout', [AuthController::class, 'logout'])->middleware('auth:sanct
 
 Route::middleware('auth:sanctum')->group(function () {
 
+    //this is test command
+
     Route::get('/book-list',[BookController::class, 'index']);
 
     Route::get('/issue',[BookController::class, 'issue']);
